@@ -34,11 +34,9 @@ main()
 
 	while (getline(cin, line)) {
 		istringstream is1{line}, is2{line};
-		set<string> words{istream_iterator<string>(is1),
-		    istream_iterator<string>()};
+		set<string> words{istream_iterator<string>(is1), {}};
 		anagram::set awords{words.cbegin(), words.cend()};
-		size_t wcount = distance(istream_iterator<string>(is2),
-		    istream_iterator<std::string>());
+		size_t wcount = distance(istream_iterator<string>(is2), {});
 
 		if (words.size() == wcount) p1++;
 		if (awords.size() == wcount) p2++;
