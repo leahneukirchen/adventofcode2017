@@ -7,6 +7,7 @@
 using namespace std;
 
 class SpiralIterator : public std::iterator<std::input_iterator_tag, int> {
+	struct SpiralInfinity { };
 public:
 	pair<int, int> p;
 	int i, j, d;
@@ -15,8 +16,8 @@ public:
 	{ }
 
 	auto begin() { return *this; }
-	auto end() { return SpiralIterator{}; }
-	bool operator!=(SpiralIterator &) const { return true; }   // infinite
+	auto end() { return SpiralInfinity{}; }
+	bool operator!=(SpiralInfinity) const { return true; }   // infinite
 
 	auto operator*() { return p; }
 	auto operator++() {
